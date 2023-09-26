@@ -1,0 +1,10 @@
+#!/bin/bash
+set -eou pipefail
+
+if [ "$#" = 0 ]; then
+  commit_hash=$(git rev-parse HEAD)
+else
+  commit_hash=$(git rev-parse "$@")
+fi
+
+gh browse -n "$commit_hash"
